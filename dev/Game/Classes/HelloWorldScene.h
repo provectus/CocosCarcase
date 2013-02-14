@@ -2,7 +2,6 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
-#include "sprite_nodes/CCSprite.h"
 
 class HelloWorld : public cocos2d::CCLayer
 {
