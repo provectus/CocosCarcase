@@ -15,10 +15,7 @@ CCScene* MenuScene::scene()
 // on "init" you need to initialize your instance
 bool MenuScene::init()
 {
-	//////////////////////////////
-	// 1. super init first
-	if (!CCLayer::init())
-	{
+	if (!CCLayer::init()) {
 		return false;
 	}
 
@@ -42,7 +39,7 @@ bool MenuScene::init()
 	CCMenu* pMenu = CCMenu::create(pStartButton, NULL);
 	pMenu->setPosition(CCPointZero);
 	this->addChild(pMenu, 1);
-
+	
 	return true;
 }
 
