@@ -20,9 +20,9 @@
 					<folderInfo id="com.android.toolchain.gcc.555412922.694450578" name="/" resourcePath="">
 						<toolChain id="com.android.toolchain.gcc.884243698" name="com.android.toolchain.gcc" superClass="com.android.toolchain.gcc">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="com.android.targetPlatform.585700725" isAbstract="false" superClass="com.android.targetPlatform"/>
-							<builder command="build_native.sh" id="com.android.builder.558090533" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder" superClass="com.android.builder"/>
+							<builder buildPath="${workspace_loc:/Game}" command="${workspace_loc:/Game}/build_native.sh" enabledIncrementalBuild="false" id="com.android.builder.558090533" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder" superClass="com.android.builder"/>
 							<tool id="com.android.gcc.compiler.1481312795" name="Android GCC Compiler" superClass="com.android.gcc.compiler">
-								<inputType id="com.android.gcc.inputType.1344642750" superClass="com.android.gcc.inputType"/>
+								<inputType id="com.android.gcc.inputType.1848568660" superClass="com.android.gcc.inputType"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
@@ -39,7 +39,6 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.pathentry"/>
 	<storageModule moduleId="refreshScope" versionNumber="1">
-		<resource resourceType="PROJECT" workspacePath="/CrossTest"/>
+		<resource resourceType="PROJECT" workspacePath="/HelloCpp"/>
 	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>
