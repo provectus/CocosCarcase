@@ -3,17 +3,10 @@
 #include "AppModel.h"
 #include <cstdlib>
 #include <ctime>
+#include "CustomSpriteFactory.h"
 
 USING_NS_CC;
 
-void MainScene::update(float dt) {
-	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-
-	srand((unsigned)time(0));
-	float x = rand() % (int) winSize.width/2+1;
-	float y = rand() % (int) winSize.height/2+1;
-	//_ghost->setPosition(ccp(x,y));
-}
 CCScene* MainScene::scene()
 {
 	// 'scene' is an autorelease object
@@ -61,7 +54,7 @@ bool MainScene::init()
 	pMenu->setPosition(CCPointZero);
 	this->addChild(pMenu, 1);
 
-	schedule(schedule_selector(MainScene::update));
+	scheduleUpdate();
 
 	refreshDiamonds();
 
@@ -79,7 +72,16 @@ void MainScene::menuCloseCallback(CCObject* pSender)
 void MainScene::refreshDiamonds() {
 	cleanUpSprites();
 
-	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+	CustomSprite* pCSprite = CustomSpriteFactory::getInstance()->createSprite("Star.png", this);
+	pCSprite->getCCSprite()->setPosition(ccp(250,250));
+
+	CustomSprite* pCSprite1 = CustomSpriteFactory::getInstance()->createSprite("1361223273_keditbookmarks.png", this);
+	pCSprite1->getCCSprite()->setPosition(ccp(500,500));
+
+	CustomSprite* pCSprite2 = CustomSpriteFactory::getInstance()->createSprite("1361223276_star.png", this);
+	pCSprite2->getCCSprite()->setPosition(ccp(700,500));
+
+	/*CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
 	AppModel* model = AppModel::getInstance();
 	for (int i = 1; i < model->getTableSize() + 1; i++)
@@ -91,19 +93,18 @@ void MainScene::refreshDiamonds() {
 
 			if (pDiamond->getType() == Star) {
 				pSprite = CCSprite::create("Star.png");
-			} else if (model->getDiamondItemAtCell(i-1,j-1)->getType() == Ruby) {
+			} else if (model->getDiamondItemAtCell(i - 1,j -1 )->getType() == Ruby) {
 				pSprite = CCSprite::create("Ruby.png");
 			} else {
 				pSprite = CCSprite::create("ghost.png");
 			}
 
-			//pSprite->setScale(5);
-			pSprite->setPosition(ccp(i * 250, j * 250));
+			pSprite->setPosition(ccp(i * 150, j * 150));
 			this->addChild(pSprite);
 
 			_sprites.push_back(pSprite);
 		}
-	}
+	}*/
 }
 void MainScene::cleanUpSprites() {
 	for (int i = 0; i < _sprites.size(); i++)
@@ -112,4 +113,20 @@ void MainScene::cleanUpSprites() {
 	}
 
 	_sprites.clear();
+}
+
+
+unsigned int _frames=0;
+float _time=0;
+void MainScene::update( float dt )
+{
+	_time+=dt;
+	_frames++;
+
+	if (_time>1)
+	{
+		CCLog("fps: %f", _frames/_time);
+		_frames=0;
+		_time-=1;
+	}	
 }

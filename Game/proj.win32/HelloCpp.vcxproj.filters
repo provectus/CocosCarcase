@@ -12,6 +12,12 @@
     <Filter Include="Classes\Model">
       <UniqueIdentifier>{85f4954e-d073-4ffc-b40f-d496afb2ed02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Utilities">
+      <UniqueIdentifier>{c0d5c32b-612c-4431-a634-3884a827713c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Infrastructure">
+      <UniqueIdentifier>{431cdd84-13f2-460b-b341-1f979a340360}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -26,11 +32,17 @@
     <ClCompile Include="..\Classes\AppModel.cpp">
       <Filter>Classes\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Utils.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\MainScene.cpp">
       <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utils.cpp">
+      <Filter>Classes\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CustomSpriteFactory.cpp">
+      <Filter>Classes\Infrastructure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CustomSprite.cpp">
+      <Filter>Classes\Infrastructure</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,11 +64,17 @@
     <ClInclude Include="..\Classes\DiamondType.h">
       <Filter>Classes\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Utils.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\MainScene.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utils.h">
+      <Filter>Classes\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CustomSpriteFactory.h">
+      <Filter>Classes\Infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CustomSprite.h">
+      <Filter>Classes\Infrastructure</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
