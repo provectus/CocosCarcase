@@ -72,38 +72,35 @@ void MainScene::menuCloseCallback(CCObject* pSender)
 void MainScene::refreshDiamonds() {
 	cleanUpSprites();
 
-	CustomSprite* pCSprite = CustomSpriteFactory::getInstance()->createSprite("Star.png", this);
-	pCSprite->getCCSprite()->setPosition(ccp(250,250));
-
-	CustomSprite* pCSprite1 = CustomSpriteFactory::getInstance()->createSprite("1361223273_keditbookmarks.png", this);
-	pCSprite1->getCCSprite()->setPosition(ccp(500,500));
-
-	CustomSprite* pCSprite2 = CustomSpriteFactory::getInstance()->createSprite("1361223276_star.png", this);
-	pCSprite2->getCCSprite()->setPosition(ccp(700,500));
+	CCSprite* pSprite =	CCSprite::create("circle.png");
+	/*CCSize size= pSprite->getContentSize();*/
+	pSprite->setAnchorPoint(ccp(0 ,0));
+	pSprite->setPosition(ccp(0,0));
+	this->addChild(pSprite);
 
 	/*CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 
 	AppModel* model = AppModel::getInstance();
 	for (int i = 1; i < model->getTableSize() + 1; i++)
 	{
-		for (int j = 1; j < model->getTableSize() + 1; j++)
-		{
-			CCSprite* pSprite = NULL;
-			DiamondItem* pDiamond = model->getDiamondItemAtCell(i - 1, j - 1);
+	for (int j = 1; j < model->getTableSize() + 1; j++)
+	{
+	CCSprite* pSprite = NULL;
+	DiamondItem* pDiamond = model->getDiamondItemAtCell(i - 1, j - 1);
 
-			if (pDiamond->getType() == Star) {
-				pSprite = CCSprite::create("Star.png");
-			} else if (model->getDiamondItemAtCell(i - 1,j -1 )->getType() == Ruby) {
-				pSprite = CCSprite::create("Ruby.png");
-			} else {
-				pSprite = CCSprite::create("ghost.png");
-			}
+	if (pDiamond->getType() == Star) {
+	pSprite = CCSprite::create("Star.png");
+	} else if (model->getDiamondItemAtCell(i - 1,j -1 )->getType() == Ruby) {
+	pSprite = CCSprite::create("Ruby.png");
+	} else {
+	pSprite = CCSprite::create("ghost.png");
+	}
 
-			pSprite->setPosition(ccp(i * 150, j * 150));
-			this->addChild(pSprite);
+	pSprite->setPosition(ccp(i * 150, j * 150));
+	this->addChild(pSprite);
 
-			_sprites.push_back(pSprite);
-		}
+	_sprites.push_back(pSprite);
+	}
 	}*/
 }
 void MainScene::cleanUpSprites() {
