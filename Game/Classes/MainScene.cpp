@@ -3,6 +3,7 @@
 #include "AppModel.h"
 #include <cstdlib>
 #include <ctime>
+#include "Utils.h"
 
 USING_NS_CC;
 
@@ -39,31 +40,37 @@ bool MainScene::init()
 		return false;
 	}
 
-	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-	CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+	for (int i = 0; i < 9; ++i) {
+		CCSprite* sprite = CCSprite::create("Ruby.png");
+		sprite->setPosition(Utils::alignTo((ScreenAlign) i));
+		this->addChild(sprite);
+	}
 
-	/////////////////////////////
-	// 2. add a menu item with "X" image, which is clicked to quit the program
-	//    you may modify it.
+	//CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+	//CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
-	// add a "close" icon to exit the progress. it's an autorelease object
-	CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-		"CloseNormal.png",
-		"CloseSelected.png",
-		this,
-		menu_selector(MainScene::menuCloseCallback));
+	///////////////////////////////
+	//// 2. add a menu item with "X" image, which is clicked to quit the program
+	////    you may modify it.
 
-	pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
-		origin.y + pCloseItem->getContentSize().height/2));
+	//// add a "close" icon to exit the progress. it's an autorelease object
+	//CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
+	//	"CloseNormal.png",
+	//	"CloseSelected.png",
+	//	this,
+	//	menu_selector(MainScene::menuCloseCallback));
 
-	// create menu, it's an autorelease object
-	CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-	pMenu->setPosition(CCPointZero);
-	this->addChild(pMenu, 1);
+	//pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
+	//	origin.y + pCloseItem->getContentSize().height/2));
 
-	schedule(schedule_selector(MainScene::update));
+	//// create menu, it's an autorelease object
+	//CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
+	//pMenu->setPosition(CCPointZero);
+	//this->addChild(pMenu, 1);
 
-	refreshDiamonds();
+	//schedule(schedule_selector(MainScene::update));
+
+	//refreshDiamonds();
 
 	return true;
 }
