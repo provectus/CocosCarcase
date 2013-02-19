@@ -3,7 +3,7 @@
 #include "AppModel.h"
 #include <cstdlib>
 #include <ctime>
-#include "CustomSpriteFactory.h"
+#include "CustomSprite.h"
 
 USING_NS_CC;
 
@@ -72,36 +72,6 @@ void MainScene::menuCloseCallback(CCObject* pSender)
 void MainScene::refreshDiamonds() {
 	cleanUpSprites();
 
-	CCSprite* pSprite =	CCSprite::create("circle.png");
-	/*CCSize size= pSprite->getContentSize();*/
-	pSprite->setAnchorPoint(ccp(0 ,0));
-	pSprite->setPosition(ccp(0,0));
-	this->addChild(pSprite);
-
-	/*CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-
-	AppModel* model = AppModel::getInstance();
-	for (int i = 1; i < model->getTableSize() + 1; i++)
-	{
-	for (int j = 1; j < model->getTableSize() + 1; j++)
-	{
-	CCSprite* pSprite = NULL;
-	DiamondItem* pDiamond = model->getDiamondItemAtCell(i - 1, j - 1);
-
-	if (pDiamond->getType() == Star) {
-	pSprite = CCSprite::create("Star.png");
-	} else if (model->getDiamondItemAtCell(i - 1,j -1 )->getType() == Ruby) {
-	pSprite = CCSprite::create("Ruby.png");
-	} else {
-	pSprite = CCSprite::create("ghost.png");
-	}
-
-	pSprite->setPosition(ccp(i * 150, j * 150));
-	this->addChild(pSprite);
-
-	_sprites.push_back(pSprite);
-	}
-	}*/
 }
 void MainScene::cleanUpSprites() {
 	for (int i = 0; i < _sprites.size(); i++)
@@ -117,7 +87,7 @@ unsigned int _frames=0;
 float _time=0;
 void MainScene::update( float dt )
 {
-	_time+=dt;
+	_time+= dt;
 	_frames++;
 
 	if (_time>1)
