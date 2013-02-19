@@ -11,7 +11,8 @@ LOCAL_SRC_FILES := main.cpp \
                    ../../Classes/MainScene.cpp \
                    ../../Classes/AppModel.cpp \
                    ../../Classes/DiamondItem.cpp \
-                   ../../Classes/Utils.cpp
+                   ../../Classes/Utils.cpp \
+                   ../../Classes/SpriteFactory.cpp	
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

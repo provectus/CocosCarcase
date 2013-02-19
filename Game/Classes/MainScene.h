@@ -21,7 +21,6 @@ public:
     CREATE_FUNC(MainScene);
 
 	void update(float dt);
-
 private:	
 	std::vector<cocos2d::CCSprite*> _sprites;
 	

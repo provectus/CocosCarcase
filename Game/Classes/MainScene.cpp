@@ -86,31 +86,26 @@ void MainScene::menuCloseCallback(CCObject* pSender)
 void MainScene::refreshDiamonds() {
 	cleanUpSprites();
 
-	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("atlases/animation1.plist", "atlases/animation1.png");
+	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("atlases/animation2.plist", "atlases/animation2.png");
 
-	AppModel* model = AppModel::getInstance();
-	for (int i = 1; i < model->getTableSize() + 1; i++)
+	CCSprite* earth = CCSprite::create();//CCSprite::createWithSpriteFrameName("1.png");
+	this->addChild(earth);
+	earth->setPosition(ccp(600, 400));
+	earth->setScale(globalScale);
+
+	CCArray* arr= new CCArray(9);
+	char buffer [50];
+
+	for (int i = 1; i < 9; i++)
 	{
-		for (int j = 1; j < model->getTableSize() + 1; j++)
-		{
-			CCSprite* pSprite = NULL;
-			DiamondItem* pDiamond = model->getDiamondItemAtCell(i - 1, j - 1);
+		sprintf(buffer,"_ (%d)", i);
+		arr->addObject(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(buffer));
+	}	
 
-			if (pDiamond->getType() == Star) {
-				pSprite = CCSprite::create("Star.png");
-			} else if (model->getDiamondItemAtCell(i-1,j-1)->getType() == Ruby) {
-				pSprite = CCSprite::create("Ruby.png");
-			} else {
-				pSprite = CCSprite::create("ghost.png");
-			}
-
-			//pSprite->setScale(5);
-			pSprite->setPosition(ccp(i * 250, j * 250));
-			this->addChild(pSprite);
-
-			_sprites.push_back(pSprite);
-		}
-	}
+	CCAnimation* animation = CCAnimation::createWithSpriteFrames(arr, 0.15f);
+	CCAction* action = CCRepeatForever::create(CCAnimate::create(animation));
+	earth->runAction(action);
 }
 void MainScene::cleanUpSprites() {
 	for (int i = 0; i < _sprites.size(); i++)
@@ -119,4 +114,20 @@ void MainScene::cleanUpSprites() {
 	}
 
 	_sprites.clear();
+}
+
+
+unsigned int _frames=0;
+float _time=0;
+void MainScene::update( float dt ) {
+	const float updateInterval = 5;
+
+	_time += dt;
+	_frames++;
+
+	if (_time > updateInterval) {
+		CCLog("fps: %f", _frames / _time);
+		_frames = 0;
+		_time -= updateInterval;
+	}	
 }
