@@ -7,14 +7,6 @@
 
 USING_NS_CC;
 
-void MainScene::update(float dt) {
-	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-
-	srand((unsigned)time(0));
-	float x = rand() % (int) winSize.width/2+1;
-	float y = rand() % (int) winSize.height/2+1;
-	//_ghost->setPosition(ccp(x,y));
-}
 CCScene* MainScene::scene()
 {
 	// 'scene' is an autorelease object
@@ -41,7 +33,7 @@ bool MainScene::init()
 	}
 
 	for (int i = 0; i < 9; ++i) {
-		CCSprite* sprite = CCSprite::create("Ruby.png");
+		CCSprite* sprite = CCSprite::create("circle.png");
 		sprite->setPosition(Utils::alignTo((ScreenAlign) i));
 		this->addChild(sprite);
 	}
