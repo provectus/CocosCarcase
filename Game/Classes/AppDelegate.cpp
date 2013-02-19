@@ -5,7 +5,6 @@
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {}
-
 AppDelegate::~AppDelegate() {}
 
 bool AppDelegate::applicationDidFinishLaunching() {
@@ -19,17 +18,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	CCSize frameSize = pEGLView->getFrameSize();
 	Resource selectedResource;
-	if (frameSize.width>=largeResource.screenWidth) {
-		selectedResource=largeResource;
+	if (frameSize.width >= largeResource.screenWidth) {
+		selectedResource = largeResource;
 	}
-	else if (frameSize.width>=normalResource.screenWidth) {
-		selectedResource=normalResource;
+	else if (frameSize.width >= normalResource.screenWidth) {
+		selectedResource = normalResource;
 	}
 	else {
-		selectedResource=smallResource;
+		selectedResource = smallResource;
 	}
 	CCFileUtils::sharedFileUtils()->setResourceDirectory(selectedResource.directory);
 	pDirector->setContentScaleFactor(selectedResource.scale);
+	globalScale = selectedResource.scale;
 
 	pDirector->setDisplayStats(false);
 	pDirector->setAnimationInterval(1.0 / 60);
