@@ -3,7 +3,6 @@
 #include "AppModel.h"
 #include <cstdlib>
 #include <ctime>
-#include "CustomSprite.h"
 
 USING_NS_CC;
 
