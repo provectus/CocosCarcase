@@ -13,17 +13,22 @@ typedef struct tagResource
 class AppMacros
 {
 public:
-	static cocos2d::CCSize designResolutionSize;
+	static void initView();
 
-	static Resource smallResource;
-	static Resource normalResource;
-	static Resource largeResource;
+	static float getGlobalScale();	
+	static cocos2d::CCSize getDesignResolutionSize();
+private:
+	static float _globalScale;
+	static float _targetFps;
 
-	static float globalScale;
+	static Resource _smallResource;
+	static Resource _normalResource;
+	static Resource _largeResource;
+
+	static cocos2d::CCSize _designResolutionSize;
 };
 
-
 // The font size 24 is designed for small resolution, so we should change it to fit for current design resolution
-#define TITLE_FONT_SIZE  (cocos2d::CCEGLView::sharedOpenGLView()->getDesignResolutionSize().width / smallResource.size.width * 24)
+#define TITLE_FONT_SIZE  (cocos2d::CCEGLView::sharedOpenGLView()->getDesignResolutionSize().width / _smallResource.size.width * 24)
 
 #endif /* __APPMACROS_H__ */

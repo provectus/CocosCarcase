@@ -18,6 +18,9 @@
     <Filter Include="Classes\Infrastructure">
       <UniqueIdentifier>{431cdd84-13f2-460b-b341-1f979a340360}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Layers">
+      <UniqueIdentifier>{0ec4c15d-7585-4f3b-bb85-50fcfb86ea26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -50,6 +53,9 @@
     <ClCompile Include="NativeWin32Test.cpp">
       <Filter>win32</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\MainMenu.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -80,6 +86,12 @@
       <Filter>Classes\Infrastructure</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\NativeTest.h">
+      <Filter>Classes\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainMenu.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Xtensions.h">
       <Filter>Classes\Utilities</Filter>
     </ClInclude>
   </ItemGroup>

@@ -107,6 +107,7 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\AppMacros.cpp" />
     <ClCompile Include="..\Classes\AppModel.cpp" />
+    <ClCompile Include="..\Classes\MainMenu.cpp" />
     <ClCompile Include="..\Classes\NativeTest.cpp" />
     <ClCompile Include="..\Classes\SpriteFactory.cpp" />
     <ClCompile Include="..\Classes\DiamondItem.cpp" />
@@ -119,12 +120,14 @@
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\AppModel.h" />
+    <ClInclude Include="..\Classes\MainMenu.h" />
     <ClInclude Include="..\Classes\NativeTest.h" />
     <ClInclude Include="..\Classes\SpriteFactory.h" />
     <ClInclude Include="..\Classes\DiamondItem.h" />
     <ClInclude Include="..\Classes\DiamondType.h" />
     <ClInclude Include="..\Classes\MainScene.h" />
     <ClInclude Include="..\Classes\Utils.h" />
+    <ClInclude Include="..\Classes\Xtensions.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
