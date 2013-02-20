@@ -7,12 +7,15 @@ LOCAL_MODULE := game_shared
 LOCAL_MODULE_FILENAME := libgame
 
 LOCAL_SRC_FILES := main.cpp \
+					NativeAndroidTest.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/MainScene.cpp \
                    ../../Classes/AppModel.cpp \
                    ../../Classes/DiamondItem.cpp \
                    ../../Classes/Utils.cpp \
-                   ../../Classes/SpriteFactory.cpp	
+                   ../../Classes/SpriteFactory.cpp \
+                   ../../Classes/AppMacros.cpp \
+                   ../../Classes/NativeTest.cpp	
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

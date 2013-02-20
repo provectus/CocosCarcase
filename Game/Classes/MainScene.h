@@ -22,6 +22,8 @@ public:
 
 	void update(float dt);
 private:	
+	unsigned int _frames;
+	float _time;
 	std::vector<cocos2d::CCSprite*> _sprites;
 	
 	void refreshDiamonds();

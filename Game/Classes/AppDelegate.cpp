@@ -14,22 +14,22 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	pDirector->setOpenGLView(pEGLView);
 
-	pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionNoBorder);
+	pEGLView->setDesignResolutionSize(AppMacros::designResolutionSize.width, AppMacros::designResolutionSize.height, kResolutionNoBorder);
 
 	CCSize frameSize = pEGLView->getFrameSize();
 	Resource selectedResource;
-	if (frameSize.width >= largeResource.screenWidth) {
-		selectedResource = largeResource;
+	if (frameSize.width >= AppMacros::largeResource.screenWidth) {
+		selectedResource = AppMacros::largeResource;
 	}
-	else if (frameSize.width >= normalResource.screenWidth) {
-		selectedResource = normalResource;
+	else if (frameSize.width >= AppMacros::normalResource.screenWidth) {
+		selectedResource = AppMacros::normalResource;
 	}
 	else {
-		selectedResource = smallResource;
+		selectedResource = AppMacros::smallResource;
 	}
 	CCFileUtils::sharedFileUtils()->setResourceDirectory(selectedResource.directory);
 	pDirector->setContentScaleFactor(selectedResource.scale);
-	globalScale = selectedResource.scale;
+	AppMacros::globalScale = selectedResource.scale;
 
 	pDirector->setDisplayStats(false);
 	pDirector->setAnimationInterval(1.0 / 60);

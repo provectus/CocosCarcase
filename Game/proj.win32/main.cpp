@@ -17,8 +17,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	AppDelegate app;
 	CCEGLView* eglView = CCEGLView::sharedOpenGLView();
 
-	const float viewWidth = 1500;
-	const float aspectRatio = designResolutionSize.height / designResolutionSize.width;
+	const float viewWidth = 2048;
+	const float aspectRatio = AppMacros::designResolutionSize.height / AppMacros::designResolutionSize.width;
 	const float windowWidth = 1280;
 
 	eglView->setFrameSize(viewWidth, viewWidth * aspectRatio);

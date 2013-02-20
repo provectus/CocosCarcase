@@ -3,9 +3,13 @@
 #include "AppModel.h"
 #include <cstdlib>
 #include <ctime>
+#include "NativeTest.h"
 #include "Utils.h"
 
 USING_NS_CC;
+
+unsigned int _frames=0;
+float _time=0;
 
 CCScene* MainScene::scene()
 {
@@ -32,33 +36,20 @@ bool MainScene::init()
 		return false;
 	}
 
-	for (int i = 0; i < 9; ++i) {
-		CCSprite* sprite = CCSprite::create("circle.png");
-		sprite->setPosition(Utils::alignTo((ScreenAlign) i));
-		this->addChild(sprite);
-	}
+	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+	CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
 
-	//CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-	//CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+	CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
+		"CloseNormal.png",
+		"CloseSelected.png",
+		this,
+		menu_selector(MainScene::menuCloseCallback));
+	pCloseItem->setScale(AppMacros::globalScale*0.35f);
+	pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 , origin.y + pCloseItem->getContentSize().height / 2));
 
-	///////////////////////////////
-	//// 2. add a menu item with "X" image, which is clicked to quit the program
-	////    you may modify it.
-
-	//// add a "close" icon to exit the progress. it's an autorelease object
-	//CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-	//	"CloseNormal.png",
-	//	"CloseSelected.png",
-	//	this,
-	//	menu_selector(MainScene::menuCloseCallback));
-
-	//pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
-	//	origin.y + pCloseItem->getContentSize().height/2));
-
-	//// create menu, it's an autorelease object
-	//CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-	//pMenu->setPosition(CCPointZero);
-	//this->addChild(pMenu, 1);
+	CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
+	pMenu->setPosition(CCPointZero);
+	this->addChild(pMenu, 1);
 
 	//schedule(schedule_selector(MainScene::update));
 
@@ -68,11 +59,13 @@ bool MainScene::init()
 }
 void MainScene::menuCloseCallback(CCObject* pSender)
 {
-	CCDirector::sharedDirector()->end();
+	NativeTest::getInstance()->test();
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	exit(0);
-#endif
+//	CCDirector::sharedDirector()->end();
+//
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+//	exit(0);
+//#endif
 }
 
 void MainScene::refreshDiamonds() {
@@ -81,10 +74,10 @@ void MainScene::refreshDiamonds() {
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("atlases/animation1.plist", "atlases/animation1.png");
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("atlases/animation2.plist", "atlases/animation2.png");
 
-	CCSprite* earth = CCSprite::create();//CCSprite::createWithSpriteFrameName("1.png");
+	CCSprite* earth = CCSprite::create();
 	this->addChild(earth);
 	earth->setPosition(ccp(600, 400));
-	earth->setScale(globalScale);
+	earth->setScale(AppMacros::globalScale);
 
 	CCArray* arr= new CCArray(9);
 	char buffer [50];
@@ -100,7 +93,7 @@ void MainScene::refreshDiamonds() {
 	earth->runAction(action);
 }
 void MainScene::cleanUpSprites() {
-	for (int i = 0; i < _sprites.size(); i++)
+	for (int i = 0; i < (int)_sprites.size(); i++)
 	{
 		delete _sprites[i];
 	}
@@ -108,9 +101,6 @@ void MainScene::cleanUpSprites() {
 	_sprites.clear();
 }
 
-
-unsigned int _frames=0;
-float _time=0;
 void MainScene::update( float dt ) {
 	const float updateInterval = 5;
 

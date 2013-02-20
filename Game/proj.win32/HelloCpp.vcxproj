@@ -105,17 +105,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\AppMacros.cpp" />
     <ClCompile Include="..\Classes\AppModel.cpp" />
+    <ClCompile Include="..\Classes\NativeTest.cpp" />
     <ClCompile Include="..\Classes\SpriteFactory.cpp" />
     <ClCompile Include="..\Classes\DiamondItem.cpp" />
     <ClCompile Include="..\Classes\MainScene.cpp" />
     <ClCompile Include="..\Classes\Utils.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NativeWin32Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\AppModel.h" />
+    <ClInclude Include="..\Classes\NativeTest.h" />
     <ClInclude Include="..\Classes\SpriteFactory.h" />
     <ClInclude Include="..\Classes\DiamondItem.h" />
     <ClInclude Include="..\Classes\DiamondType.h" />

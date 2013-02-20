@@ -41,6 +41,15 @@
     <ClCompile Include="..\Classes\SpriteFactory.cpp">
       <Filter>Classes\Infrastructure</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AppMacros.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NativeTest.cpp">
+      <Filter>Classes\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="NativeWin32Test.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -69,6 +78,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\SpriteFactory.h">
       <Filter>Classes\Infrastructure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NativeTest.h">
+      <Filter>Classes\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

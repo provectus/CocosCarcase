@@ -26,6 +26,7 @@ package org.cocos2dx.game;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 public class Game extends Cocos2dxActivity{
 
@@ -35,5 +36,10 @@ public class Game extends Cocos2dxActivity{
 	
     static {
          System.loadLibrary("game");
+    }
+    
+    public static void test()
+    {
+    	Log.d("Game", "naive call");
     }
 }
