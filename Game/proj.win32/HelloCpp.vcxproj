@@ -107,6 +107,8 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\AppMacros.cpp" />
     <ClCompile Include="..\Classes\AppModel.cpp" />
+    <ClCompile Include="..\Classes\Bunny.cpp" />
+    <ClCompile Include="..\Classes\MainBackground.cpp" />
     <ClCompile Include="..\Classes\MainMenu.cpp" />
     <ClCompile Include="..\Classes\NativeTest.cpp" />
     <ClCompile Include="..\Classes\SpriteFactory.cpp" />
@@ -115,13 +117,17 @@
     <ClCompile Include="..\Classes\Utils.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NativeWin32Test.cpp" />
+    <ClCompile Include="PlatformSpecificWin32.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\AppModel.h" />
+    <ClInclude Include="..\Classes\Bunny.h" />
+    <ClInclude Include="..\Classes\MainBackground.h" />
     <ClInclude Include="..\Classes\MainMenu.h" />
     <ClInclude Include="..\Classes\NativeTest.h" />
+    <ClInclude Include="..\Classes\PlatformSpecific.h" />
     <ClInclude Include="..\Classes\SpriteFactory.h" />
     <ClInclude Include="..\Classes\DiamondItem.h" />
     <ClInclude Include="..\Classes\DiamondType.h" />

@@ -8,6 +8,7 @@ LOCAL_MODULE_FILENAME := libgame
 
 LOCAL_SRC_FILES := main.cpp \
 					NativeAndroidTest.cpp \
+					PlatformSpecificAndroid.cpp \
                    ../../Classes/AppDelegate.cpp \
                    ../../Classes/MainScene.cpp \
                    ../../Classes/AppModel.cpp \
@@ -15,7 +16,10 @@ LOCAL_SRC_FILES := main.cpp \
                    ../../Classes/Utils.cpp \
                    ../../Classes/SpriteFactory.cpp \
                    ../../Classes/AppMacros.cpp \
-                   ../../Classes/NativeTest.cpp	
+                   ../../Classes/NativeTest.cpp	\
+                   ../../Classes/MainMenu.cpp \
+                   ../../Classes/MainBackground.cpp \
+                   ../../Classes/Bunny.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

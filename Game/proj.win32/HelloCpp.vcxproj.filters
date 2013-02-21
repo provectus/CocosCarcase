@@ -21,6 +21,9 @@
     <Filter Include="Classes\Layers">
       <UniqueIdentifier>{0ec4c15d-7585-4f3b-bb85-50fcfb86ea26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\ViewController">
+      <UniqueIdentifier>{63e87d1e-8171-46b8-84e0-d27372d4ad98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -54,7 +57,16 @@
       <Filter>win32</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MainMenu.cpp">
-      <Filter>Classes</Filter>
+      <Filter>Classes\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainBackground.cpp">
+      <Filter>Classes\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Bunny.cpp">
+      <Filter>Classes\ViewController</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformSpecificWin32.cpp">
+      <Filter>win32</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,11 +100,20 @@
     <ClInclude Include="..\Classes\NativeTest.h">
       <Filter>Classes\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MainMenu.h">
-      <Filter>win32</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Xtensions.h">
       <Filter>Classes\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainMenu.h">
+      <Filter>Classes\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainBackground.h">
+      <Filter>Classes\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Bunny.h">
+      <Filter>Classes\ViewController</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PlatformSpecific.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

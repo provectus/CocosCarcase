@@ -1,4 +1,5 @@
 #include "AppMacros.h"
+#include "PlatformSpecific.h"
 
 USING_NS_CC;
 
@@ -17,6 +18,14 @@ USING_NS_CC;
 /*static*/ CCSize AppMacros::getDesignResolutionSize()
 {
 	return _designResolutionSize;
+}
+/*static*/ CCSize AppMacros::getVisibleSize()
+{
+	return CCDirector::sharedDirector()->getVisibleSize();
+}
+/*static*/ CCPoint AppMacros::getVisibleOrigin()
+{
+	return CCDirector::sharedDirector()->getVisibleOrigin();
 }
 
 /*static*/ void AppMacros::initView() {
@@ -42,6 +51,6 @@ USING_NS_CC;
 	pDirector->setContentScaleFactor(selectedResource.scale);
 	_globalScale = selectedResource.scale;
 
-	pDirector->setDisplayStats(false);
+	pDirector->setDisplayStats(PlatformSpecific::getShowDisplayStats());
 	pDirector->setAnimationInterval(1.0 / _targetFps);
 }

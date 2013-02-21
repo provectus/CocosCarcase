@@ -16,8 +16,8 @@ bool MainMenu::init() {
 	pCloseItem->setAnchorPoint(ccp(1, 0));
 	pCloseItem->setScale(AppMacros::getGlobalScale());
 
-	CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
-	CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();	
+	CCSize visibleSize = AppMacros::getVisibleSize();
+	CCPoint origin = AppMacros::getVisibleOrigin();	
 	pCloseItem->setPosition(ccp(origin.x + visibleSize.width, origin.y));
 
 	CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);

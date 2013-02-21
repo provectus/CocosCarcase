@@ -6,6 +6,5 @@ using namespace cocos2d;
 class SpriteFactory
 {
 public:
-	static void init();	
-	static CCSprite* createSprite(const char* spriteName, cocos2d::CCNode* node);
+	static void initSpriteFactory();	
 };

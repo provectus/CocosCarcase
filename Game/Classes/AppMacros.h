@@ -2,6 +2,7 @@
 #define __APPMACROS_H__
 
 #include "cocos2d.h"
+USING_NS_CC;
 
 typedef struct tagResource
 {
@@ -16,7 +17,10 @@ public:
 	static void initView();
 
 	static float getGlobalScale();	
-	static cocos2d::CCSize getDesignResolutionSize();
+	static CCSize getDesignResolutionSize();
+	static CCSize getVisibleSize();
+	static CCPoint getVisibleOrigin();	
+
 private:
 	static float _globalScale;
 	static float _targetFps;

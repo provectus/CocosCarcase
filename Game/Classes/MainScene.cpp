@@ -6,15 +6,20 @@
 #include "NativeTest.h"
 #include "Utils.h"
 #include "MainMenu.h"
+#include "MainBackground.h"
+#include "SpriteFactory.h"
 
 USING_NS_CC;
 
 CCScene* MainScene::scene() {
-	CCScene *scene = CCScene::create();
-	MainScene *layer = MainScene::create();
-	scene->addChild(layer);
+	SpriteFactory::initSpriteFactory();
 
+	CCScene *scene = CCScene::create();
+
+	scene->addChild(MainBackground::create());
+	scene->addChild(MainScene::create());
 	scene->addChild(MainMenu::create());
+
 	return scene;
 }
 
@@ -23,41 +28,24 @@ bool MainScene::init() {
 		return false;
 	}
 
-	_frames=0;
-	_time=0;
+	_frames = 0;
+	_time = 0;
 
-	drawSomething();
+	CCLabelTTF* pLabel = CCLabelTTF::create("hello from cocos world", "Fonts/Century Gothic.TTF", 40);
+	pLabel->setColor(ccc3(200, 200, 200));
+	pLabel->setPosition(ccp(0, 0));
+	pLabel->setAnchorPoint(ccp(0, 0));
+	this->addChild(pLabel);
+
+	_pBunny = new Bunny(this);
+	_pBunny->setPosition(ccp(150, 250));
+
+	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+	this->setTouchEnabled(true);
 
 	scheduleUpdate();
 
 	return true;
-}
-
-void MainScene::drawSomething() {
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("atlases/animation1.plist", "atlases/animation1.png");
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("atlases/animation2.plist", "atlases/animation2.png");
-	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("atlases/gui_atlas.plist", "atlases/gui_atlas.png");
-
-	CCSprite* pAnimatedSprite = CCSprite::create();
-	this->addChild(pAnimatedSprite);
-	pAnimatedSprite->setPosition(ccp(600, 400));
-	pAnimatedSprite->setScale(AppMacros::getGlobalScale());
-
-	CCArray* pSpriteFramesArray= new CCArray(9);
-	char buffer [50];
-
-	for (int i = 1; i < 9; i++)
-	{
-		sprintf(buffer,"_ (%d)", i);
-		pSpriteFramesArray->addObject(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(buffer));
-	}	
-
-	pAnimatedSprite->runAction(CCRepeatForever::create(CCAnimate::create(CCAnimation::createWithSpriteFrames(pSpriteFramesArray, 0.15f))));
-		
-	CCLabelTTF* pLabel = CCLabelTTF::create("hello from cocos world", "Fonts/Century Gothic.TTF", 40);
-	pLabel->setPosition(ccp(0, 350));
-	pLabel->setAnchorPoint(ccp(0, 0));
-	this->addChild(pLabel);
 }
 
 void MainScene::update( float dt ) {
@@ -71,4 +59,8 @@ void MainScene::update( float dt ) {
 		_frames = 0;
 		_time -= updateInterval;
 	}	
+}
+bool MainScene::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent) {
+	_pBunny->walkTo(pTouch->getLocation());
+	return true;
 }
